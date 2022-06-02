@@ -7,20 +7,20 @@ export const Form = () => {
     <Container>
       <form>
         <label>
-          <input type="text" id="campo" placeholder="Nome da ONG" />
+          <input type="text" className="campo" placeholder="Nome da ONG" />
         </label>
         <label>
-          <input type="text" id="campo" placeholder="E-mail" />
+          <input type="text" className="campo" placeholder="E-mail" />
         </label>
         <label>
-          <input type="text" id="campo" placeholder="WhatsApp" />
+          <input type="text" className="campo" placeholder="WhatsApp" />
         </label>
         <label>
-          <input type="text" placeholder="Cidade" />
+          <input type="text" id="camp" placeholder="Cidade" />
           <input type="text" id="uf" placeholder="UF" />
         </label>
         <div>
-          <button>Cadastrar</button>
+          <button type="submit">Cadastrar</button>
         </div>
       </form>
     </Container>
