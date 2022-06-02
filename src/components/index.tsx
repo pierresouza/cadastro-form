@@ -1,12 +1,13 @@
 import React from "react";
+import { Form } from "./Form";
 import { Info } from "./Info";
 import { Container } from "./styles";
 
 export const Layout = () => {
   return (
     <Container>
-      {/* <Form/> */}
       <Info />
+      <Form />
     </Container>
   );
 };
