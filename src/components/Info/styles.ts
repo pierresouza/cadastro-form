@@ -1,57 +1,57 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  height: 100vh;
-  width: 100vw;
   display: flex;
+  align-items: flex-end;
   flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
+  justify-content: center;
+
+  width: 100vw;
+  height: 100vh;
 
   div.content {
-    border: 1px solid #ff0000;
-    height: 45%;
-    display: flex;
-    flex-direction: column;
-    div#top-info {
-      width: 30rem;
-      padding-bottom: 0 2rem;
+    width: 35rem;
+    height: 23.5rem;
+    div#top {
       display: flex;
       flex-direction: column;
-
       img {
-        width: 16rem;
+        width: 200px;
       }
-
       strong {
-        font-size: 1.75rem;
+        display: flex;
+        align-items: flex-end;
+        height: 8.5rem;
+
+        text-align: center;
+
+        font-size: 2rem;
+        font-weight: bold;
       }
     }
 
-    div#bottom-info {
+    div#info {
       display: flex;
-      flex-direction: column;
       width: 30rem;
-
-      img {
-        width: 1.5rem;
-      }
-
+      align-items: center;
+      height: 5.75rem;
       p {
-        font-size: 1.125rem;
+        font-size: 1.25rem;
       }
     }
-    div#teste {
+
+    div#bottom {
       display: flex;
+      align-items: flex-end;
+
       width: 30rem;
-      padding-top: 1rem;
+      height: 4rem;
       img {
         margin-right: 1rem;
       }
       p {
-        padding: 0.25rem;
+        font-size: 1.2rem;
         font-weight: bold;
-        font-size: 1.125rem;
       }
     }
   }
