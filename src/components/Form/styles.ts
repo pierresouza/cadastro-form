@@ -14,6 +14,14 @@ export const Container = styled.div`
     flex-direction: column;
 
     label {
+      input[type="number"]::-webkit-outer-spin-button,
+      input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+      }
+
+      input[type="number"] {
+        -moz-appearance: textfield;
+      }
       input {
         width: 22.5rem;
         height: 3.75rem;
@@ -21,7 +29,6 @@ export const Container = styled.div`
         padding: 0.75rem;
         border-radius: 0.5rem;
         border: 1px solid #dcdce5;
-        outline: 0;
       }
 
       .campo {
@@ -35,7 +42,7 @@ export const Container = styled.div`
         justify-content: flex-start;
         width: 20rem;
         span {
-          padding-left: 1rem;
+          padding-left: 0.75rem;
           color: red;
         }
       }
@@ -63,7 +70,7 @@ export const Container = styled.div`
         height: 3.75rem;
         border-radius: 0.5rem;
         border: 0;
-        margin-top: 1rem;
+        margin-top: 0.5rem;
         background-color: #e02041;
         cursor: pointer;
       }
