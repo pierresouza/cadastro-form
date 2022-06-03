@@ -3,9 +3,10 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
+import axios from "axios";
 import { Container } from "./styles";
 
-interface Inputs {
+export interface Inputs {
   name: string;
   email: string;
   whatsapp: number;
@@ -26,19 +27,29 @@ const schema = yup
     uf: yup.string().required(),
   })
   .required();
+
 export const Form = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<Inputs>({
     resolver: yupResolver(schema),
   });
 
-  function onSubmit(userData: any) {
-    console.log(userData);
-  }
+  const onSubmit = (data: any) => {
+    axios
+      .post("http://localhost:3000/posts", data, {
+        headers: { input: "db.json" },
+      })
+      .then((response) => {
+        console.log(response.data);
+        alert("Cadastro Realizado com Sucesso");
+      })
+      .catch((error) => {
+        console.log(error.data);
+      });
+  };
 
   return (
     <Container>
@@ -46,7 +57,7 @@ export const Form = () => {
         <label>
           <input
             type="text"
-            className="campo"
+            id="campo"
             placeholder="Nome da ONG"
             autoComplete="off"
             {...register("name", { required: true })}
@@ -58,7 +69,7 @@ export const Form = () => {
         <label>
           <input
             type="text"
-            className="campo"
+            id="campo"
             placeholder="E-mail"
             autoComplete="off"
             {...register("email", { required: true })}
@@ -69,8 +80,8 @@ export const Form = () => {
         </label>
         <label>
           <input
-            type="tel"
-            className="campo"
+            type="number"
+            id="campo"
             pattern="[0-9]{2}-[0-9]{5}-[0-9]{4}"
             placeholder="WhatsApp"
             autoComplete="off"

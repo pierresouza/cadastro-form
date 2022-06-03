@@ -31,7 +31,7 @@ export const Container = styled.div`
         border: 1px solid #dcdce5;
       }
 
-      .campo {
+      #campo {
         width: 28rem;
         &::placeholder {
           font-size: 1.125rem;
