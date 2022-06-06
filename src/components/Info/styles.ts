@@ -45,7 +45,7 @@ export const Container = styled.div`
       align-items: flex-end;
 
       width: 30rem;
-      height: 4rem;
+      height: 8rem;
       img {
         margin-right: 1rem;
       }

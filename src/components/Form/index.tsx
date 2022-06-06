@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import InputMask from "react-input-mask";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
@@ -20,7 +21,6 @@ const schema = yup
     email: yup.string().email().required("O Email é obrigatório"),
     whatsapp: yup
       .number()
-      .min(11)
       .typeError("O Número deve ter pelo menos 11 dígitos")
       .required("O Número deve ter pelo menos 11 dígitos"),
     city: yup.string().required("A Localização é obrigatória"),
@@ -59,7 +59,6 @@ export const Form = () => {
             type="text"
             id="campo"
             placeholder="Nome da ONG"
-            autoComplete="off"
             {...register("name", { required: true })}
           />
           <div>
@@ -71,7 +70,6 @@ export const Form = () => {
             type="text"
             id="campo"
             placeholder="E-mail"
-            autoComplete="off"
             {...register("email", { required: true })}
           />
           <div>
@@ -80,11 +78,10 @@ export const Form = () => {
         </label>
         <label>
           <input
-            type="number"
+            type="tel"
             id="campo"
-            pattern="[0-9]{2}-[0-9]{5}-[0-9]{4}"
+            maxLength={11}
             placeholder="WhatsApp"
-            autoComplete="off"
             {...register("whatsapp", { required: true })}
           />
           <div>
@@ -96,13 +93,13 @@ export const Form = () => {
             type="text"
             id="camp"
             placeholder="Cidade"
-            autoComplete="off"
             {...register("city", { required: true })}
           />
           <input
+            type="text"
             id="uf"
             placeholder="UF"
-            autoComplete="off"
+            maxLength={2}
             {...register("uf", { required: true })}
           />
           <div>

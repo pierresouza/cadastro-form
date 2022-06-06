@@ -14,14 +14,6 @@ export const Container = styled.div`
     flex-direction: column;
 
     label {
-      input[type="number"]::-webkit-outer-spin-button,
-      input[type="number"]::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-      }
-
-      input[type="number"] {
-        -moz-appearance: textfield;
-      }
       input {
         width: 22.5rem;
         height: 3.75rem;
@@ -32,6 +24,12 @@ export const Container = styled.div`
       }
 
       #campo {
+        width: 28rem;
+        &::placeholder {
+          font-size: 1.125rem;
+        }
+      }
+      #phone {
         width: 28rem;
         &::placeholder {
           font-size: 1.125rem;
