@@ -1,6 +1,5 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import InputMask from "react-input-mask";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
@@ -80,7 +79,8 @@ export const Form = () => {
           <input
             type="tel"
             id="campo"
-            maxLength={11}
+            pattern="[0-9]{2} [0-9]{5} [0-9]{4}"
+            maxLength={13}
             placeholder="WhatsApp"
             {...register("whatsapp", { required: true })}
           />
