@@ -42,11 +42,11 @@ export const Form = () => {
       .post("http://localhost:3000/posts", data, {
         headers: { input: "db.json" },
       })
-      .then((response) => {
+      .then((response: { data: any }) => {
         console.log(response.data);
         alert("Cadastro Realizado com Sucesso");
       })
-      .catch((error) => {
+      .catch((error: { data: any }) => {
         console.log(error.data);
       });
   };
