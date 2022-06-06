@@ -79,8 +79,7 @@ export const Form = () => {
           <input
             type="tel"
             id="campo"
-            pattern="[0-9]{2} [0-9]{5} [0-9]{4}"
-            maxLength={13}
+            maxLength={11}
             placeholder="WhatsApp"
             {...register("whatsapp", { required: true })}
           />
