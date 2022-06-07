@@ -2,51 +2,49 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  align-items: flex-end;
   flex-direction: column;
-  justify-content: center;
+  height: 40vh;
+  div#logo {
+    display: flex;
+    flex-direction: column;
+    img {
+      width: 12.5rem;
+    }
+  }
 
-  width: 100vw;
-  height: 100vh;
-
-  div.content {
-    width: 35rem;
-    height: 23.5rem;
-    div#top {
+  div#info {
+    display: flex;
+    flex-direction: column;
+    width: 30rem;
+    strong {
+      height: 13.5vh;
       display: flex;
-      flex-direction: column;
-      img {
-        width: 200px;
-      }
-      strong {
-        display: flex;
-        align-items: flex-end;
-        height: 8.5rem;
+      align-items: flex-end;
 
-        text-align: center;
+      text-align: center;
 
-        font-size: 2rem;
-        font-weight: bold;
-      }
+      font-size: 2rem;
+      font-weight: bold;
     }
 
-    div#info {
+    article {
       display: flex;
-      width: 30rem;
       align-items: center;
-      height: 5.75rem;
+      width: 30rem;
+      height: 13vh;
       p {
         font-size: 1.25rem;
       }
     }
-
-    div#bottom {
+    div#button-bottom {
       display: flex;
+      flex-direction: row;
       align-items: flex-end;
 
-      width: 30rem;
-      height: 8rem;
+      height: 12vh;
+      cursor: pointer;
       img {
+        width: 1.5rem;
         margin-right: 1rem;
       }
       p {

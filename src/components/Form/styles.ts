@@ -2,12 +2,9 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  align-items: flex-start;
   flex-direction: column;
   justify-content: center;
-
-  height: 100vh;
-  width: 100vw;
+  height: 40vh;
 
   form {
     display: flex;
@@ -15,9 +12,9 @@ export const Container = styled.div`
 
     label {
       input {
-        width: 22.5rem;
+        width: 23rem;
         height: 3.75rem;
-        margin: 0.5rem;
+        margin: 0.25rem;
         padding: 0.75rem;
         border-radius: 0.5rem;
         border: 1px solid #dcdce5;
@@ -70,6 +67,9 @@ export const Container = styled.div`
         border: 0;
         margin-top: 0.5rem;
         background-color: #e02041;
+        font-weight: 700;
+        color: #f0f0f5;
+
         cursor: pointer;
       }
     }

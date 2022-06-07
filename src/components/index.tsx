@@ -1,13 +1,15 @@
 import React from "react";
 import { Form } from "./Form";
 import { Info } from "./Info";
-import { Container } from "./styles";
+import { Container, Content } from "./styles";
 
 export const Layout = () => {
   return (
     <Container>
-      <Info />
-      <Form />
+      <Content>
+        <Info />
+        <Form />
+      </Content>
     </Container>
   );
 };
