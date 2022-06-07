@@ -3,8 +3,15 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
-import axios from "axios";
-import { Container } from "./styles";
+import { api } from "../../services/api";
+import {
+  Container,
+  NameInput,
+  EmailInput,
+  NumberInput,
+  CityInput,
+  Button,
+} from "./styles";
 
 export interface Inputs {
   name: string;
@@ -23,7 +30,7 @@ const schema = yup
       .typeError("O Número deve ter pelo menos 11 dígitos")
       .required("O Número deve ter pelo menos 11 dígitos"),
     city: yup.string().required("A Localização é obrigatória"),
-    uf: yup.string().required(),
+    uf: yup.string().required(""),
   })
   .required();
 
@@ -37,77 +44,74 @@ export const Form = () => {
   });
 
   const onSubmit = (data: any) => {
-    axios
-      .post("http://localhost:3000/posts", data, {
-        headers: { input: "db.json" },
-      })
-      .then((response: { data: any }) => {
-        console.log(response.data);
+    if (!data) return;
+    api
+      .post("/Entitys", data)
+      .then((response) => {
         alert("Cadastro Realizado com Sucesso");
       })
-      .catch((error: { data: any }) => {
+      .catch((error) => {
         console.log(error.data);
+        alert("Erro ao cadastrar");
       });
   };
 
   return (
     <Container>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <label>
-          <input
-            type="text"
-            id="campo"
-            placeholder="Nome da ONG"
-            {...register("name", { required: true })}
-          />
-          <div>
+        <NameInput>
+          <label>
+            <input
+              type="text"
+              placeholder="Nome da ONG"
+              {...register("name", { required: true })}
+            />
             <span>{errors.name?.message}</span>
-          </div>
-        </label>
-        <label>
-          <input
-            type="text"
-            id="campo"
-            placeholder="E-mail"
-            {...register("email", { required: true })}
-          />
-          <div>
+          </label>
+        </NameInput>
+        <EmailInput>
+          <label>
+            <input
+              type="text"
+              placeholder="Email"
+              {...register("email", { required: true })}
+            />
             <span>{errors.email?.message}</span>
-          </div>
-        </label>
-        <label>
-          <input
-            type="tel"
-            id="campo"
-            maxLength={11}
-            placeholder="WhatsApp"
-            {...register("whatsapp", { required: true })}
-          />
-          <div>
+          </label>
+        </EmailInput>
+        <NumberInput>
+          <label>
+            <input
+              type="text"
+              placeholder="WhatsApp"
+              maxLength={11}
+              {...register("whatsapp", { required: true })}
+            />
             <span>{errors.whatsapp?.message}</span>
-          </div>
-        </label>
-        <label>
-          <input
-            type="text"
-            id="camp"
-            placeholder="Cidade"
-            {...register("city", { required: true })}
-          />
-          <input
-            type="text"
-            id="uf"
-            placeholder="UF"
-            maxLength={2}
-            {...register("uf", { required: true })}
-          />
-          <div>
-            <span>{errors.city?.message}</span>
-          </div>
-        </label>
-        <div>
+          </label>
+        </NumberInput>
+        <CityInput>
+          <label>
+            <input
+              type="text"
+              id="city"
+              placeholder="Cidade"
+              {...register("city", { required: true })}
+            />
+            <input
+              type="text"
+              id="uf"
+              placeholder="UF"
+              maxLength={2}
+              {...register("uf", { required: true })}
+            />
+          </label>
+
+          <span>{errors.city?.message}</span>
+        </CityInput>
+        <Button>
           <button type="submit">Cadastrar</button>
-        </div>
+        </Button>
       </form>
     </Container>
   );

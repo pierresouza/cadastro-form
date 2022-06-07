@@ -1,4 +1,14 @@
 {
+  "Entitys": [
+    {
+      "uf": "SP",
+      "city": "são mateus",
+      "whatsapp": 11987299382,
+      "email": "batata@batata.com",
+      "name": "batata",
+      "id": 1
+    }
+  ],
   "posts": [
     {
       "id": 1,

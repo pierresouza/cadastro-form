@@ -17,10 +17,10 @@ export const Info = () => {
             os casos da sua ONG.
           </p>
         </article>
-        <div id="button-bottom">
-          <img src={Back} alt="botão de voltar" />
-          <p>Voltar para o logon</p>
-        </div>
+      </div>
+      <div id="button-bottom">
+        <img src={Back} alt="botão de voltar" />
+        <p>Voltar para o logon</p>
       </div>
     </Container>
   );
